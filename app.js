@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:5000";
+const API_URL = "https://watermelonwithoutwater.github.io/";
 const GOOGLE_CLIENT_ID = "922073879513-h45gm9u4kk44o3tjgrg96d0jf95puedh.apps.googleusercontent.com";
 
 // --- 1. نظام تشغيل وحقن زر جوجل الرسمي برمجياً ---
