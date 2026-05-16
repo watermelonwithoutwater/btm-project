@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول | البريق التقني المميز</title>
+    <link rel="stylesheet" href="signin.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+    <script src="color.js"></script>
+
+    <div class="auth-wrapper">
+        
+        <nav class="auth-nav">
+            <button id="darkModeToggle" class="theme-btn">🌙</button>
+            <a href="index.html" class="logo-text">BTM</a>
+        </nav>
+
+        <main class="auth-card">
+            <div class="card-header">
+                <h1 class="h">مرحباً بعودتك</h1>
+                <p class="subtitle">قم بتسجيل الدخول للوصول إلى المتجر ولوحة التحكم</p>
+            </div>
+
+            <form class="auth-form" onsubmit="event.preventDefault(); handleAuth('login');">
+                
+                <div class="input-wrapper">
+                    <label for="email">البريد الإلكتروني</label>
+                    <div class="input-box">
+                        <span class="icon">📧</span>
+                        <input type="email" id="email" placeholder="example@mail.com" required>
+                    </div>
+                </div>
+
+                <div class="input-wrapper">
+                    <div class="label-row">
+                        <label for="password">كلمة المرور</label>
+                        <a href="#" class="forgot-pass">نسيت كلمة المرور؟</a>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon">🔒</span>
+                        <input type="password" id="password" placeholder="••••••••" required>
+                    </div>
+                </div>
+
+                <div class="remember-me">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">تذكرني على هذا الجهاز</label>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">دخــــــــول</button>
+
+                <div class="divider">
+                    <span>أو تابع باستخدام</span>
+                </div>
+
+                <div class="google-outer-container">
+                    <div id="googleBtn"></div>
+                </div>
+
+                <div id="statusMessage" class="status-msg"></div>
+            </form>
+
+            <footer class="card-footer">
+                <p>ليس لديك حساب؟ <a href="createac.html">أنشئ حسابك الآن</a></p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>البريق التقني المميز | BTM</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <link rel="icon" href="favico.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="favico.png">
+</head>
+<body>
+
+    <nav class="dock-container">
+        <div class="dock">
+            <div class="dock-main-links">
+                <a href="index.html" class="dock-item active">الرئيسية</a>
+                <a href="store.html" class="dock-item">المتجر</a>
+                <a href="#" class="dock-item">العقارات</a>
+                <a href="#" class="dock-item">الأنظمة الأمنية</a>
+            </div>
+            
+            <div class="dock-actions">
+                <button id="darkModeToggle" class="theme-btn">🌙</button>
+                <div class="user-dropdown">
+                    <div class="user-icon" onclick="toggleDropdown()">👤</div>
+                    <div id="userMenu" class="dropdown-content">
+                        <div class="user-info">
+                            <p id="displayUsername" class="user-name">ضيف</p>
+                            <p id="displayEmail" class="user-email">غير مسجل</p>
+                        </div>
+                        <hr>
+                        <a href="signin.html" id="loginLink">تسجيل الدخول</a>
+                        <a href="createac.html" id="signupLink">إنشاء حساب</a>
+                        <a href="#" onclick="logout()" id="logoutLink" style="display:none;">تسجيل الخروج</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="bg-lines">
+            <div class="circle-line c1"></div>
+            <div class="circle-line c2"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="brand-badge">BTM 2026</div>
+            <h1 class="h">البريق التقني المميز</h1>
+            <h2 class="h2">نجمع بين رفاهية العقار وذكاء التكنولوجيا</h2>
+            <p class="hero-description">أكثر من 15 عاماً من الخبرة في تقديم الحلول العقارية المتكاملة، الأنظمة الأمنية الحديثة، والأجهزة الذكية في مكان واحد.</p>
+            <div class="hero-btns">
+                <button class="hero-btn primary" id="heroBtn">
+                    ابدأ الآن ! <span class="arrow">←</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="cards-showcase">
+            
+            <div class="showcase-card card-red tilt-right">
+                <div class="card-badge">متاح</div>
+                <div class="card-icon">🏠</div>
+                <h3>شقق فاخرة</h3>
+                <p>وحدات سكنية ذكية بتصاميم عصرية تناسب تطلعاتك للمستقبل.</p>
+                <div class="card-footer-btn">📊 14.6% عوائد</div>
+            </div>
+
+            <div class="showcase-card card-green tilt-left clicked">
+                <div class="card-badge highlight">الأكثر طلباً</div>
+                <div class="card-icon">🔒</div>
+                <h3>أنظمة أمنية</h3>
+                <p>كاميرات مراقبة وحلول أمان متكاملة لحماية ممتلكاتك على مدار الساعة.</p>
+                <div class="card-footer-btn">⚡ حماية ذكية</div>
+            </div>
+
+            <div class="showcase-card card-purple tilt-straight">
+                <div class="card-badge">جديد</div>
+                <div class="card-icon">📱</div>
+                <h3>إدارة ذكية</h3>
+                <p>تحكم في منزلك ومنشأتك بالكامل من خلال تطبيقات الهاتف والذكاء الاصطناعي.</p>
+                <div class="card-footer-btn">🛠️ دعم مستمر</div>
+            </div>
+
+            <div class="showcase-card card-blue tilt-right-soft">
+                <div class="card-badge alert">قريباً</div>
+                <div class="card-icon">⚡</div>
+                <h3>بنية تحتية</h3>
+                <p>تجهيز شبكات متطورة وحلول طاقة مستدامة للمشاريع الكبرى.</p>
+                <div class="card-footer-btn">🔒 مشفر بالكامل</div>
+            </div>
+
+        </div>
+    </header>
+
+    <section class="data-section">
+        <div class="chart-container">
+            <h3 class="chart-title">مؤشرات نمو السوق العقاري والتقني</h3>
+            <canvas id="growthChart"></canvas>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <p>جميع الحقوق محفوظة © 2026 | البريق التقني المميز</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        const ctx = document.getElementById('growthChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو'],
+                datasets: [{
+                    label: 'النمو العقاري',
+                    data: [15, 22, 18, 30, 45],
+                    borderColor: '#48cae4',
+                    tension: 0.4,
+                    fill: true,
+                    backgroundColor: 'rgba(72, 202, 228, 0.05)'
+                }, {
+                    label: 'الطلب التقني',
+                    data: [8, 15, 25, 22, 35],
+                    borderColor: '#00ff00',
+                    tension: 0.4,
+                    fill: true,
+                    backgroundColor: 'rgba(0, 255, 0, 0.05)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { labels: { color: '#ffffff', font: { family: 'al' } } }
+                },
+                scales: {
+                    x: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.6)' } },
+                    y: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: 'rgba(255,255,255,0.6)' } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المتجر الرقمي | BTM</title>
+    <link rel="stylesheet" href="store.css">
+
+    <script>
+        // تحقق مما إذا كان المستخدم مسجلاً في الـ localStorage
+        const isLoggedIn = localStorage.getItem('isLoggedIn'); 
+
+        if (isLoggedIn !== 'true') {
+            // إذا لم يكن مسجلاً، وجهه فوراً لصفحة تسجيل الدخول (استبدل login.html بمسار صفحتك)
+            window.location.href = 'createac.html'; 
+        }
+    </script>
+
+
+</head>
+<body>
+    <script src="color.js"></script>
+
+    <header class="store-header">
+        <div class="header-container">
+            <div class="right-nav">
+                <a href="index.html" class="logo">BTM</a>
+                <nav class="nav-links">
+                    <a href="index.html">الرئيسية</a>
+                    <a href="store.html" class="active">المتجر</a>
+                    <a href="#">العقارات</a>
+                    <a href="#">الأنظمة الأمنية</a>
+                </nav>
+            </div>
+            
+            <div class="left-nav">
+                <button id="darkModeToggle" class="theme-btn">🌙</button>
+                
+                <div class="cart-icon-wrapper" onclick="toggleCartSidebar()">
+                    <span class="cart-icon">🛒</span>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </div>
+
+                <div class="user-profile-wrapper" onclick="toggleDropdown()">
+                    <div class="profile-trigger">
+                        <span id="displayUsername">مستكشف BTM</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div id="userMenu" class="dropdown-menu">
+                        <a href="#">حسابي</a>
+                        <a href="#">طلباتي</a>
+                        <button onclick="logout()" id="logoutLink" class="logout-btn">تسجيل الخروج</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <main class="store-layout">
+        <aside class="filter-sidebar">
+            <h3>التصنيفات</h3>
+            <ul class="category-list">
+                <li class="active"><span class="cat-icon">📱</span> الكل</li>
+                <li><span class="cat-icon">🏠</span> عقارات مميزة</li>
+                <li><span class="cat-icon">📹</span> كاميرات مراقبة</li>
+                <li><span class="cat-icon">🔒</span> أنظمة أمان ذكية</li>
+                <li><span class="cat-icon">🛠️</span> قطع صيانة هاردوير</li>
+            </ul>
+        </aside>
+
+        <section class="products-section">
+            <div class="section-title-row">
+                <h2>أحدث المنتجات والخدمات</h2>
+                <span class="results-count">تم العثور على 5 عناصر</span>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+            </div>
+        </section>
+    </main>
+
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-sidebar-header">
+            <h4>سلة المشتريات</h4>
+            <button class="close-cart-btn" onclick="toggleCartSidebar()">✕</button>
+        </div>
+        <div class="cart-items-container" id="cartItemsContainer">
+            <div class="empty-cart-msg">
+                <span class="empty-icon">🛒</span>
+                <p>السلة فارغة حالياً</p>
+            </div>
+        </div>
+        <div class="cart-sidebar-footer">
+            <div class="total-row">
+                <span>المجموع الكلي:</span>
+                <span id="cartTotalSum">0.00$</span>
+            </div>
+            <button class="checkout-btn" onclick="goToCheckout()">الانتهاء والطلب عبر الواتساب</button>
+        </div>
+    </div>
+
+    <script src="store.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
